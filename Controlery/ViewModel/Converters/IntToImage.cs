@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,29 +11,30 @@ namespace Controlery.ViewModel.Converters
 {
     class IntToImage : IValueConverter
     {
-        public object Convert(object value, Type targetType, object parameter, string language)
+        public BitmapImage Rock { get; set; }
+        public BitmapImage Scissors { get; set; }
+        public BitmapImage Paper { get; set; }
+        public BitmapImage None { get; set; }
+
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (value is int)
+            if (value is KNP)
             {
-                int cislo = ((int)value) % 3;
-                switch (cislo)
+                switch ((int)value)
                 {
-                    case 0: { return Portrait1; }
-                    case 1: { return Portrait2; }
-                    case 2: { return Portrait3; }
+                    case 0: { return None; }
+                    case 1: { return Rock; }
+                    case 2: { return Scissors; }
+                    case 3: { return Paper; }
                 }
             }
             return null;
         }
 
-        public object ConvertBack(object value, Type targetType, object parameter, string language)
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
             throw new NotImplementedException();
         }
-
-        public BitmapImage Portrait1 { get; set; }
-        public BitmapImage Portrait2 { get; set; }
-        public BitmapImage Portrait3 { get; set; }
 
     }
 }

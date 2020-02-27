@@ -127,6 +127,8 @@
     <Compile Include="ViewModel\Converters\IntToImage.cs" />
     <Compile Include="ViewModel\Converters\IntToStringName.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\ParametrizedRelayCommand.cs" />
+    <Compile Include="ViewModel\RelayCommand.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
